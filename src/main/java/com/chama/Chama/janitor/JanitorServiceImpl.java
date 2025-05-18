@@ -1,4 +1,4 @@
 package com.chama.Chama.janitor;
 
-public class JanitorDto {
+public class JanitorServiceImpl {
 }
