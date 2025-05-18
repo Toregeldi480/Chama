@@ -4,28 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service
-public class JanitorService {
-  @Autowired
-  private JanitorRepository janitorRepository;
-  @Autowired
-  private JanitorMapper janitorMapper;
+import java.util.Collection;
 
-  private final PasswordEncoder passwordEncoder;
-
-  public JanitorService(PasswordEncoder passwordEncoder) {
-    this.passwordEncoder = passwordEncoder;
-  }
-
-  public JanitorDto createJanitor(JanitorDto janitorDto) {
-    Janitor janitor = janitorMapper.toEntity(janitorDto, passwordEncoder);
-    Janitor savedJanitor = janitorRepository.save(janitor);
-    return janitorMapper.toDto(savedJanitor);
-  }
-
-  public void updateJanitor(Janitor janitor) {
-    if (janitorRepository.findById(janitor.getId()) != null) {
-      janitorRepository.save(janitor);
-    }
-  }
+public interface JanitorService {
+  public abstract Collection<Janitor> getJanitors();
+  public abstract Janitor updateJanitor(Long id, Janitor janitor);
+  public abstract void deleteJanitor(Long id);
 }

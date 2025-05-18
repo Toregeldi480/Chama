@@ -1,8 +1,9 @@
 package com.chama.Chama.auth;
 
-import org.springframework.stereotype.Service;
+import com.chama.Chama.janitor.Janitor;
+import com.chama.Chama.janitor.JanitorDto;
 
-@Service
-public class AuthService {
-
+public interface AuthService {
+    public abstract Janitor authorizeJanitor(JanitorDto janitor);
+    public abstract Boolean authenticateJanitor(JanitorDto janitor);
 }
