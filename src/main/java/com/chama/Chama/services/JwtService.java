@@ -1,4 +1,4 @@
-package com.tericcabrel.authapi.services;
+package com.chama.Chama.services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
